@@ -1,5 +1,5 @@
 var http = require('http');
-var url = require('url');
+var jsdom = require('jsdom');
 
 // Some test options - looking at kinokuniya here
 var options = {
@@ -20,7 +20,18 @@ http.get(options, function(res) {
 
   // When we're done getting data, do something
   res.on('end', function() {
-    console.log(resData);
+    
+    jsdom.env({
+      html: resData,
+      scripts: [
+      'http://code.jquery.com/jquery-1.5.min.js'
+      ]
+    }, function (err, window) {
+      var $= window.jQuery;
+      console.log($('li[id*="review_"]'));
+    });
+    
+    // console.log(resData);
   });
 
 }).on('error', function(e) {
