@@ -28,7 +28,12 @@ http.get(options, function(res) {
       ]
     }, function (err, window) {
       var $= window.jQuery;
-      console.log($('li[id*="review_"]'));
+      var hrefs = new Array();
+      $('.user-name').each(function() {
+        hrefs.push($(this).find('a').attr('href'));
+      });
+
+      console.log(hrefs); 
     });
     
     // console.log(resData);
