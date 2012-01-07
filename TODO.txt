@@ -1,0 +1,2 @@
+1.) Abstract out the scrapers
+2.) Construct the crawler loop
