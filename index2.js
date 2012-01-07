@@ -32,7 +32,8 @@ http.get(options, function(res) {
       $('.biz_info').each(function() {
         hrefs.push($(this).find('h4').find('a').attr('href')); 
       });
-
+      // Bizzarely, the links from users to businesses are relative
+      // Whereas the links from businesses to users are absolute
       console.log(hrefs);
     });
     
