@@ -1,2 +1,4 @@
-1.) Abstract out the scrapers
+--DONE-- 1.) Abstract out the scrapers
 2.) Construct the crawler loop
+3.) Make the scraper function asynchronous
+4.) Find out what to return from the scraper
