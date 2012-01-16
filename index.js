@@ -1,4 +1,5 @@
 var scraper = require('./scraper');
+var url = require('url');
 
 // Some test options - looking at some guy here
 var options = {
@@ -12,11 +13,15 @@ function query(err, window) {
   var $= window.jQuery;
   var hrefs = new Array()
   $('.biz_info').each(function() {
-    hrefs.push($(this).find('h4').find('a').attr('href')); 
+    var href = $(this).find('h4').find('a').attr('href'); 
+    var parsed = url.parse(href);
+    parsed.protocol = "http";
+    parsed.hostname = "www.yelp.com.au";
+    parsed.hash = "";
+    console.log(url.format(parsed)); 
   });
   // Bizzarely, the links from users to businesses are relative
   // Whereas the links from businesses to users are absolute
-      console.log(hrefs);
 }
 
 scraper.scrape(options, query);
