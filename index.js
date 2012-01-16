@@ -1,4 +1,4 @@
-var scraper = require('./scraper');
+var Scraper = require('./scraper').Scraper;
 var url = require('url');
 
 // Some test options - looking at some guy here
@@ -14,14 +14,26 @@ function query(err, window) {
   var hrefs = new Array()
   $('.biz_info').each(function() {
     var href = $(this).find('h4').find('a').attr('href'); 
-    var parsed = url.parse(href);
+    hrefs.push(href);
+  });
+  return hrefs;
+}
+
+function sanitize(raw) {
+  var sanitized = new Array();
+  for(i in raw) {
+    var parsed = url.parse(raw[i]);
     parsed.protocol = "http";
     parsed.hostname = "www.yelp.com.au";
     parsed.hash = "";
-    console.log(url.format(parsed)); 
-  });
-  // Bizzarely, the links from users to businesses are relative
-  // Whereas the links from businesses to users are absolute
+    sanitized.push(url.format(parsed));
+  }
+  return sanitized;
 }
+var scraper = new Scraper();
 
-scraper.scrape(options, query);
+scraper.on('done', function(links) {
+  console.log(links);
+});
+
+scraper.scrape(options, query, sanitize);

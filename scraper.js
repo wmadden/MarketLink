@@ -1,10 +1,16 @@
 var http = require('http');
 var jsdom = require('jsdom');
+var util = require('util');
+var events = require('events');
 
-//TODO: Decide what this returns.
-//TODO: Make this asynchronous and play nice.
-function scrape(options, query) {
-  
+function Scraper() {
+  events.EventEmitter.call(this);
+} 
+
+util.inherits(Scraper, events.EventEmitter);
+
+Scraper.prototype.scrape = function scrape(options, query, sanitize) {
+ var self = this; 
   // We send a get request
   http.get(options, function(res) {
   
@@ -26,9 +32,11 @@ function scrape(options, query) {
         'http://code.jquery.com/jquery-1.5.min.js'
         ]
       }, function(err, window){
-        //Is this wrapping necessary?
-        query(err, window);
+        var hrefs = query(err, window);
+        var sanitized = sanitize(hrefs);
+        self.emit('done', sanitized);
       });
+    
     });
 
   }).on('error', function(e) {
@@ -36,4 +44,4 @@ function scrape(options, query) {
   });
 }
 
-exports.scrape = scrape;
+exports.Scraper = Scraper;
