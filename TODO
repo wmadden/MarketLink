@@ -1,4 +1,5 @@
 --DONE-- 1.) Abstract out the scrapers
 2.) Construct the crawler loop
-3.) Make the scraper function asynchronous
-4.) Find out what to return from the scraper
+--DONE --3.) Make the scraper function asynchronous
+--DONE-- 4.) Find out what to return from the scraper
+5.) Construct analytics visualiser JSON
