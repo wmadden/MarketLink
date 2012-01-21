@@ -29,8 +29,9 @@
 
   <script type="text/html" id="CategoryList_template">
     <ul class="categories">
-      <li>Food</li>
-      <li>Brothels</li>
+      {{#each categories}}
+        <li>{{this}}</li>
+      {{/each}}
     </ul>
   </script>
 
