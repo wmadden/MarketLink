@@ -1,0 +1,3 @@
+views ?= {}
+
+class views.CategoryList

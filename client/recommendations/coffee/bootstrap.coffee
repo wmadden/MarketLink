@@ -1,0 +1,3 @@
+$( ->
+  reco.Application.run()
+)
