@@ -19,8 +19,3 @@ class reco.views.CategoryList extends Backbone.View
   render: () ->
     rendered = @template( @context )
     $(@el).append( rendered )
-    @$("ul.categories .item").click( (e) => @on_category_click(e) )
-
-  on_category_click: ( event ) ->
-    @trigger( "category:select" )
-    event.preventDefault()
