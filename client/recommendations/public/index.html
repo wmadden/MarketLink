@@ -30,7 +30,9 @@
   <script type="text/html" id="CategoryList_template">
     <ul class="categories">
       {{#each categories}}
-        <li>{{this}}</li>
+      <li class="category">
+        <a class="item" href="{{path}}">{{name}}</a>
+      </li>
       {{/each}}
     </ul>
   </script>
