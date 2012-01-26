@@ -7,14 +7,14 @@ class reco.views.CategoryView extends Backbone.View
   initialize: ->
     super
     @questionView = new reco.views.CategoryView.QuestionView()
-    @recommendationsListView = new reco.views.CategoryView.RecommendationsListView()
+    @recommendationListView = new reco.views.CategoryView.RecommendationListView()
     $(@el).append( @questionView.el )
-    $(@el).append( @recommendationsListView.el )
+    $(@el).append( @recommendationListView.el )
 
   render: ->
     super
     @questionView.render()
-    @recommendationsListView.render()
+    @recommendationListView.render()
 
     @$(".QuestionView_placeholder").replaceWith( @questionView.el )
-    @$(".RecommendationsListView_placeholder").replaceWith( @recommendationsListView.el )
+    @$(".RecommendationListView_placeholder").replaceWith( @recommendationListView.el )
