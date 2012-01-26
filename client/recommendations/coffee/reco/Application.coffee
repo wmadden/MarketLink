@@ -2,20 +2,35 @@ namespace "reco"
 
 class reco.Application extends Backbone.Router
   routes: {
-    "categories": "categories",
-    "categories/:category": "category"
+    "/": "rootRoute",
+    "/categories": "categoriesRoute",
+    "/categories/:category": "categoryRoute"
   }
   
   run: ->
     @categoriesView = new reco.views.CategoryList()
+    @categoriesView.categories = @categories
     @categoryView = new reco.views.CategoryView()
-    @navigate("categories")
     Backbone.history.start()
   
-  categories: ->
+  categories: [
+    {
+      name: "Food",
+      path: "#/categories/food"
+    },
+    {
+      name: "Brothels",
+      path: "#/categories/brothels"
+    }
+  ]
+
+  rootRoute: ->
+    @navigate("/categories", "categoriesRoute")
+
+  categoriesRoute: ->
     @showTopLevelView( @categoriesView )
 
-  category: ( category ) ->
+  categoryRoute: ( category ) ->
     @categoryView.category = category
     @showTopLevelView( @categoryView )
 
@@ -23,7 +38,7 @@ class reco.Application extends Backbone.Router
     if @currentView?
       @currentView.remove()
     view.render()
-    $("#bd").append( view.el )
+    $("#bd").html( view.el )
     @currentView = view
 
 reco.Application.run = () ->
