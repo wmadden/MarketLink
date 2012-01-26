@@ -1,6 +1,13 @@
 @import sass/mixins/_frameless.scss
 @import "compass"
 @import "compass/typography/lists/bullets"
+@import "compass/css3/text-shadow"
+
+$h-padding: 12px
+$v-padding: 8px
+
+=default_padding
+  padding: $v-padding $h-padding
 
 body
   background: radial-gradient(#000 15%, rgba(0,0,0,0) 16%) 0 0, radial-gradient(black 15%, rgba(0,0,0,0) 16%) 8px 8px, radial-gradient(rgba(255,255,255,.1) 15%, rgba(0,0,0,0) 20%) 0 1px, radial-gradient(rgba(255,255,255,0.1) 15%, rgba(0,0,0,0) 20%) 8px 9px
@@ -25,10 +32,10 @@ body
 #site-title
   color: white
   font-weight: bold
-  padding: 18px 12px
   display: block
   text-decoration: none
   letter-spacing: 0.08em
+  padding: 18px 12px
 
 .CategoryListView
   
@@ -36,9 +43,7 @@ body
     +no-bullets
 
   .category
-    // Old browsers
     background-color: #ffffff
-    // IE 6-9
     @include filter-gradient(#ffffff, #ffffff, vertical)
     +background-image(linear-gradient(top, #ffffff 0%,#f2f2f2 50%,#eaeaea 51%,#ffffff 100%))
     border-bottom: 1px solid #666
@@ -55,6 +60,43 @@ body
     a
       color: inherit
       text-decoration: none
-      padding: 8px 10px
+      +default_padding
       display: block
       font-size: 0.8em
+
+.QuestionView
+  border-bottom: 1px solid #666
+  +default_padding
+  font-size: 0.8em
+  color: #222
+  font-weight: bold
+  +single-text-shadow(rgba(255,255,255,0.5), -1px, -1px, 1px)
+  background-color: #bfbfbf
+  @include filter-gradient(#bfbfbf, #4f4f4f, vertical)
+  @include background-image(linear-gradient(top,  #bfbfbf 0%,#adadad 100%))
+  
+.RecommendationListView
+  ul
+    +no-bullets
+
+    li
+      background-color: #ffffff
+      @include filter-gradient(#ffffff, #ffffff, vertical)
+      +background-image(linear-gradient(top, #ffffff 0%,#f2f2f2 50%,#eaeaea 51%,#ffffff 100%))
+      border-bottom: 1px solid #666
+
+      &:hover
+        background-color: #b8e1fc
+        @include filter-gradient(#b8e1fc, #bdf3fd, vertical)
+        @include background-image(linear-gradient(top,  #b8e1fc 0%,#a9d2f3 10%,#90bae4 25%,#90bcea 37%,#90bff0 50%,#6ba8e5 51%,#a2daf5 83%,#bdf3fd 100%))
+        color: #FFFFFF
+        background-color: #499bea
+        @include filter-gradient(#499bea, #207ce5, vertical)
+        @include background-image(linear-gradient(top,  #499bea 0%,#207ce5 100%))
+
+      a
+        color: inherit
+        text-decoration: none
+        +default_padding
+        display: block
+        font-size: 0.8em
