@@ -23,7 +23,7 @@ class reco.Application extends Backbone.Router
     if @currentView?
       @currentView.remove()
     view.render()
-    $("#doc").append( view.el )
+    $("#bd").append( view.el )
     @currentView = view
 
 reco.Application.run = () ->

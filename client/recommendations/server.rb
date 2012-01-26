@@ -3,7 +3,17 @@
 
 require 'sinatra'
 require 'sass'
+require 'compass'
 require 'coffee_script'
+
+configure do
+  Compass.configuration do |config|
+    config.project_path = File.dirname(__FILE__)
+    config.sass_dir = 'sass'
+  end
+
+  set :sass, Compass.sass_engine_options
+end
 
 get '/' do
     redirect to('/index.html')
