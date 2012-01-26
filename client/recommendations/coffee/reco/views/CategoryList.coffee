@@ -11,5 +11,5 @@ class reco.views.CategoryList extends reco.views.HandlebarsView
 
   categories: []
 
-  templateSelector: "#CategoryList_template"
+  templateSelector: "#CategoryListView_template"
   elClass: "CategoryListView"

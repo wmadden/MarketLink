@@ -28,10 +28,10 @@
     <script src="javascripts/reco/views/CategoryList.js"></script>
     <script src="javascripts/reco/views/CategoryView.js"></script>
     <script src="javascripts/reco/views/CategoryView/QuestionView.js"></script>
-    <script src="javascripts/reco/views/CategoryView/RecommendationsView.js"></script>
+    <script src="javascripts/reco/views/CategoryView/RecommendationListView.js"></script>
 	</head>
 
-  <script type="text/html" id="CategoryList_template">
+  <script type="text/x-handlebars-template" id="CategoryListView_template">
     <ul class="categories">
       {{#each categories}}
       <li class="category">
@@ -39,6 +39,11 @@
       </li>
       {{/each}}
     </ul>
+  </script>
+
+  <script type="text/x-handlebars-template" id="CategoryView_template">
+    <div class="QuestionView_placeholder"></div>
+    <div class="RecommendationsListView_placeholder"></div>
   </script>
 
 	<body lang="en">
