@@ -6,5 +6,9 @@ class reco.views.HandlebarsView extends Backbone.View
     $(@el).addClass( @elClass )
 
   render: ->
-    rendered = @template( @context )
+    rendered = @template( @context() )
     $(@el).html( rendered )
+
+  context: -> {} # Variables exposed to handlebars template
+  elClass: "CSSClassNameForYourOutput"
+  templateSelector: "CSSSelectorOfYourTemplateHandlebarsString"
