@@ -1,0 +1,18 @@
+Recommendation Service Client
+-----------------------------
+
+Dependencies:
+  * RVM: http://beginrescueend.com/
+  * Ruby 1.9.3: `rvm install ruby 1.9.3`
+  * Bundler: `cd client/recommendations; gem install bundler`
+  * Gems listed in Gemfile: `bundle install`
+
+Development:
+  I've included a minimal development server (server.rb). It compiles CoffeeScript and SASS assets on the fly.
+
+Notes:
+  Backbone.js is used for client-side MVC.
+  Handlebars.js is used to render views.
+  Sinatra runs the server.
+  SASS for CSS.
+  CoffeeScript for Javascript.
