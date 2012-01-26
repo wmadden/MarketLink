@@ -1,21 +1,19 @@
 namespace "reco.views"
 
-class reco.views.CategoryList extends Backbone.View
+class reco.views.CategoryList extends reco.views.HandlebarsView
   initialize: ( options ) ->
-    @template = Handlebars.compile( $("#CategoryList_template").html() )
+    super
     @context = {
       categories: [
         {
           name: "Food",
-          path: "#category/food"
+          path: "#categories/food"
         },
         {
           name: "Brothels",
-          path: "#category/brothels"
+          path: "#categories/brothels"
         }]
     }
-    $(@el).addClass("CategoryList")
 
-  render: () ->
-    rendered = @template( @context )
-    $(@el).append( rendered )
+  templateSelector: "#CategoryList_template"
+  elClass: "CategoryListView"
