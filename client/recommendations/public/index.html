@@ -61,12 +61,11 @@
 
   <script type="text/x-handlebars-template" id="RecommendationListView_template">
     <ul>
-      <li>
-        <a href="#">Recommendation 1</a>
-      </li>
-      <li>
-        <a href="#">Recommendation 2</a>
-      </li>
+      {{#each recommendations}}
+        <li class="recommendation">
+          <a href="{{url}}">{{text}}</a>
+        </li>
+      {{/each}}
     </ul>
   </script>
 
