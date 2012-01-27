@@ -47,16 +47,25 @@
   </script>
 
   <script type="text/x-handlebars-template" id="QuestionView_template">
-    {{question.text}}
+    <div class="question">
+      {{question.text}}
+    </div>
+    <ul class="options">
+      {{#each question.possibleResponses}}
+      <li class="{{polarity}} option">
+        <a href="#">{{text}}</a>
+      </li>
+      {{/each}}
+    </ul>
   </script>
 
   <script type="text/x-handlebars-template" id="RecommendationListView_template">
     <ul>
       <li>
-        <a>Recommendation 1</a>
+        <a href="#">Recommendation 1</a>
       </li>
       <li>
-        <a>Recommendation 2</a>
+        <a href="#">Recommendation 2</a>
       </li>
     </ul>
   </script>
@@ -65,7 +74,7 @@
 	
     <div id="doc">
       <div id="hd">
-        <a id="site-title" href="#/">AnalWise</a>
+        <a id="site-title" href="#/categories">AnalWise</a>
       </div>
       <div id="bd">
       </div>

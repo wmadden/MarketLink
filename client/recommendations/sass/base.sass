@@ -2,6 +2,7 @@
 @import "compass"
 @import "compass/typography/lists/bullets"
 @import "compass/css3/text-shadow"
+@import "compass/css3/border-radius"
 
 $h-padding: 12px
 $v-padding: 8px
@@ -28,6 +29,7 @@ body
   background-color: #45484d
   @include filter-gradient(#45484d, #000000, vertical)
   @include background-image(linear-gradient(top,  #45484d 0%,#000000 100%))
+  border-bottom: 1px solid #333
 
 #site-title
   color: white
@@ -69,11 +71,58 @@ body
   +default_padding
   font-size: 0.8em
   color: #222
-  font-weight: bold
-  +single-text-shadow(rgba(255,255,255,0.5), -1px, -1px, 1px)
-  background-color: #bfbfbf
-  @include filter-gradient(#bfbfbf, #4f4f4f, vertical)
-  @include background-image(linear-gradient(top,  #bfbfbf 0%,#adadad 100%))
+  background-color: #000000
+  @include filter-gradient(#000000, #45484d, vertical)
+  @include background-image(linear-gradient(top,  #000000 0%,#45484d 100%))
+
+  .question
+    margin-bottom: $v-padding
+    color: #CCC
+    letter-spacing: 0.05em
+    font-weight: bold
+
+  .options
+    +no-bullets
+
+    .option
+      display: block
+      background: #DDD
+      border: 1px solid #444
+      border-bottom: none
+      color: #FFFFFF
+      background-color: #979797
+      @include filter-gradient(#979797, #686868, vertical)
+      @include background-image(linear-gradient(top,  #979797 0%,#777777 50%,#717171 51%,#686868 100%))
+
+      &.positive
+        color: #17300A
+        color: #FFFFFF
+        background-color: #39dd39
+        @include filter-gradient(#39dd39, #2edc2e, vertical)
+        @include background-image(linear-gradient(top,  #39dd39 0%,#23cd23 50%,#21c321 51%,#2edc2e 100%))
+
+        //+single-text-shadow( rgba(0,0,0,0.5), 0, 0, 2px )
+
+      &.negative
+        background: #E98681
+        //color: #4C211F
+        color: #FFFFFF  
+        background-color: #e14d4d
+        @include filter-gradient(#e14d4d, #df4343, vertical)
+        @include background-image(linear-gradient(top,  #e14d4d 0%,#db2929 50%,#d42424 51%,#df4343 100%))
+
+      a
+        display: block
+        color: inherit
+        +default-padding
+        text-decoration: none
+
+      &:first-child
+        +border-top-radius( $h-padding / 2 )
+
+      &:last-child
+        +border-bottom-radius( $h-padding / 2 )
+        border-bottom: 1px solid #888
   
 .RecommendationListView
   ul

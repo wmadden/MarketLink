@@ -6,5 +6,20 @@ class reco.views.CategoryView.QuestionView extends reco.views.HandlebarsView
 
   context: ->
     {
-      question: { text: "Some question" }
+      question: { 
+        text: "Some question?",
+        possibleResponses: [
+          {
+            polarity: "positive",
+            text: "Yes"
+          },
+          {
+            polarity: "negative",
+            text: "No"
+          },
+          {
+            text: "Maybe"
+          }
+        ]
+      }
     }
