@@ -1,0 +1,9 @@
+# TODO: automate installing these
+
+Production Dependencies:
+  - node:    nodejs.org
+  - mongodb: mongodb.org
+
+Development Dependencies:
+  - ruby
+    - bundler
